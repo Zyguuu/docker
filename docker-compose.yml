@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  ansible:
+    build: .
+    container_name: ansible
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./playbooks:/playbooks
+      - ./inventory:/inventory
+      - ~/.ssh:/root/.ssh:ro
+    working_dir: /playbooks
